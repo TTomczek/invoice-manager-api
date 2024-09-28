@@ -1,0 +1,32 @@
+openapi: 3.0.0
+info:
+    title: Invoice Manager API
+    version: 1.0.0
+    description: This is a simple API to manage invoices
+
+paths:
+    /invoices:
+        get:
+            summary: Get all invoices
+            responses:
+                '200':
+                    description: A list of invoices
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/Invoice'
+
+components:
+    schemas:
+        Invoice:
+            type: object
+            properties:
+                id:
+                    type: integer
+                amount:
+                    type: number
+                date:
+                    type: string
+                    format: date
