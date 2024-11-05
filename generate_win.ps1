@@ -1,12 +1,12 @@
-echo "Generating OpenAPI client on windows"
+Write-Output "Generating OpenAPI client on windows"
 ./mvnw.cmd clean install -DskipTests
-cd invoice-manager-api-typescript-angular-client/target/generated-sources/openapi
-echo "Installing angular dependencies"
+Set-Location invoice-manager-api-typescript-angular-client/target/generated-sources/openapi
+Write-Output "Installing angular dependencies"
 npm install
-echo "Building angular api"
+Write-Output "Building angular api"
 npm run build
-cd dist
-echo "Packing angular api"
+Set-Location dist
+Write-Output "Packing angular api"
 npm pack
-cd ../../../../..
-echo "Done"
+Set-Location ../../../../..
+Write-Output "Done"

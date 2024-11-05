@@ -32,6 +32,7 @@
                         <configuration>
                             <inputSpec>${project.basedir}/../openapi.yaml</inputSpec>
                             <generatorName>typescript-angular</generatorName>
+                            <modelNameSuffix>DTO</modelNameSuffix>
                             <configOptions>
                                 <ngVersion>18.2.0</ngVersion>
                                 <fileNaming>kebab-case</fileNaming>

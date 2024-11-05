@@ -7,8 +7,16 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.4</version>
+        <version>3.3.5</version>
     </parent>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub TTomczek Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/TTomczek/invoice-manager-api</url>
+        </repository>
+    </distributionManagement>
 
     <groupId>net.tomczek</groupId>
     <artifactId>invoice-manager-api</artifactId>

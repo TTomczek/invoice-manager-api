@@ -3,11 +3,18 @@ info:
     title: Invoice Manager API
     version: 1.0.0
     description: This is a simple API to manage invoices
+servers:
+    -   url: http://localhost:8080
+        description: Local development server
 
 paths:
+    # Invoice
     /invoices:
         get:
             summary: Get all invoices
+            tags:
+                - Invoices
+            operationId: getAllInvoices
             responses:
                 '200':
                     description: A list of invoices
@@ -17,16 +24,773 @@ paths:
                                 type: array
                                 items:
                                     $ref: '#/components/schemas/Invoice'
+        post:
+            summary: Create a new invoice
+            tags:
+                - Invoices
+            operationId: createInvoice
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/Invoice'
+            responses:
+                '201':
+                    description: The invoice was created
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Invoice'
+    /invoices/{id}:
+        get:
+            summary: Get an invoice by id
+            tags:
+                - Invoices
+            operationId: getInvoiceById
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: The id of the invoice
+                    schema:
+                        type: integer
+            responses:
+                '200':
+                    description: An invoice
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Invoice'
+                '404':
+                    description: Invoice with given id not found
+        put:
+            summary: Update an invoice
+            tags:
+                - Invoices
+            operationId: updateInvoiceById
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: The id of the invoice
+                    schema:
+                        type: integer
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/Invoice'
+            responses:
+                '200':
+                    description: The updated invoice
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Invoice'
+                '404':
+                    description: Invoice with given id not found
+        delete:
+            summary: Delete an invoice
+            tags:
+                - Invoices
+            operationId: deleteInvoiceById
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: The id of the invoice
+                    schema:
+                        type: integer
+            responses:
+                '204':
+                    description: The invoice was deleted
+                '404':
+                    description: Invoice with given id not found
+    # Business Partner
+    /business-partners:
+        get:
+            summary: Get all business partners
+            tags:
+                - Business Partners
+            operationId: getAllBusinessPartners
+            responses:
+                '200':
+                    description: A list of business partners
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/BusinessPartner'
+        post:
+            summary: Create a new business partner
+            tags:
+                - Business Partners
+            operationId: createBusinessPartner
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/BusinessPartner'
+            responses:
+                '201':
+                    description: The business partner was created
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/BusinessPartner'
+    /business-partners/{id}:
+        get:
+            summary: Get a business partner by id
+            tags:
+                - Business Partners
+            operationId: getBusinessPartnerById
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: The id of the business partner
+                    schema:
+                        type: integer
+            responses:
+                '200':
+                    description: A business partner
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/BusinessPartner'
+                '404':
+                    description: Business partner with given id not found
+        put:
+            summary: Update a business partner
+            tags:
+                - Business Partners
+            operationId: updateBusinessPartnerById
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: The id of the business partner
+                    schema:
+                        type: integer
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/BusinessPartner'
+            responses:
+                '200':
+                    description: The updated business partner
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/BusinessPartner'
+                '404':
+                    description: Business partner with given id not found
+        delete:
+            summary: Delete a business partner
+            tags:
+                - Business Partners
+            operationId: deleteBusinessPartnerById
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: The id of the business partner
+                    schema:
+                        type: integer
+            responses:
+                '204':
+                    description: The business partner was deleted
+                '404':
+                    description: Business partner with given id not found
+    # Contact Person
+    /contact-persons:
+        get:
+            summary: Get all contact persons
+            tags:
+                - Contact Persons
+            responses:
+                '200':
+                    description: A list of contact persons
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/ContactPerson'
+        post:
+            summary: Create a new contact person
+            tags:
+                - Contact Persons
+            operationId: createContactPerson
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/ContactPerson'
+            responses:
+                '201':
+                    description: The contact person was created
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ContactPerson'
+    /contact-persons/{id}:
+        get:
+            summary: Get a contact person by id
+            tags:
+                - Contact Persons
+            operationId: getContactPersonById
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: The id of the contact person
+                    schema:
+                        type: integer
+            responses:
+                '200':
+                    description: A contact person
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ContactPerson'
+                '404':
+                    description: Contact person with given id not found
+        put:
+            summary: Update a contact person
+            tags:
+                - Contact Persons
+            operationId: updateContactPersonById
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: The id of the contact person
+                    schema:
+                        type: integer
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/ContactPerson'
+            responses:
+                '200':
+                    description: The updated contact person
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ContactPerson'
+                '404':
+                    description: Contact person with given id not found
+        delete:
+            summary: Delete a contact person
+            tags:
+                - Contact Persons
+            operationId: deleteContactPersonById
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: The id of the contact person
+                    schema:
+                        type: integer
+            responses:
+                '204':
+                    description: The contact person was deleted
+                '404':
+                    description: Contact person with given id not found
+    # Pdf Template
+    /pdf-templates:
+        get:
+            summary: Get all pdf templates
+            tags:
+                - Pdf Templates
+            operationId: getAllPdfTemplates
+            responses:
+                '200':
+                    description: A list of pdf templates
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/PdfTemplate'
+        post:
+            summary: Create a new pdf template
+            tags:
+                - Pdf Templates
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/PdfTemplate'
+            responses:
+                '201':
+                    description: The pdf template was created
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/PdfTemplate'
+    /pdf-templates/{id}:
+        get:
+            summary: Get a pdf template by id
+            tags:
+                - Pdf Templates
+            operationId: getPdfTemplateById
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: The id of the pdf template
+                    schema:
+                        type: integer
+            responses:
+                '200':
+                    description: A pdf template
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/PdfTemplate'
+                '404':
+                    description: Pdf template with given id not found
+        put:
+            summary: Update a pdf template
+            tags:
+                - Pdf Templates
+            operationId: updatePdfTemplateById
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: The id of the pdf template
+                    schema:
+                        type: integer
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/PdfTemplate'
+            responses:
+                '200':
+                    description: The updated pdf template
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/PdfTemplate'
+                '404':
+                    description: Pdf template with given id not found
+        delete:
+            summary: Delete a pdf template
+            tags:
+                - Pdf Templates
+            operationId: deletePdfTemplateById
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: The id of the pdf template
+                    schema:
+                        type: integer
+            responses:
+                '204':
+                    description: The pdf template was deleted
+                '404':
+                    description: Pdf template with given id not found
+    # Position
+    /positions:
+        get:
+            summary: Get all positions
+            tags:
+                - Positions
+            operationId: getAllPositions
+            responses:
+                '200':
+                    description: A list of positions
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/Position'
+        post:
+            summary: Create a new position
+            tags:
+                - Positions
+            operationId: createPosition
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/Position'
+            responses:
+                '201':
+                    description: The position was created
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Position'
+    /positions/{id}:
+        get:
+            summary: Get a position by id
+            tags:
+                - Positions
+            operationId: getPositionById
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: The id of the position
+                    schema:
+                        type: integer
+            responses:
+                '200':
+                    description: A position
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Position'
+                '404':
+                    description: Position with given id not found
+        put:
+            summary: Update a position
+            tags:
+                - Positions
+            operationId: updatePositionById
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: The id of the position
+                    schema:
+                        type: integer
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/Position'
+            responses:
+                '200':
+                    description: The updated position
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Position'
+                '404':
+                    description: Position with given id not found
+        delete:
+            summary: Delete a position
+            tags:
+                - Positions
+            operationId: deletePositionById
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: The id of the position
+                    schema:
+                        type: integer
+            responses:
+                '204':
+                    description: The position was deleted
+                '404':
+                    description: Position with given id not found
+    # Sales Tax
+    /sales-taxes:
+        get:
+            summary: Get all sales taxes
+            tags:
+                - Sales Taxes
+            operationId: getAllSalesTaxes
+            responses:
+                '200':
+                    description: A list of sales taxes
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/SalesTax'
+        post:
+            summary: Create a new sales tax
+            tags:
+                - Sales Taxes
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/SalesTax'
+            responses:
+                '201':
+                    description: The sales tax was created
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/SalesTax'
+    /sales-taxes/{id}:
+        get:
+            summary: Get a sales tax by id
+            tags:
+                - Sales Taxes
+            operationId: getSalesTaxById
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: The id of the sales tax
+                    schema:
+                        type: integer
+            responses:
+                '200':
+                    description: A sales tax
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/SalesTax'
+                '404':
+                    description: Sales tax with given id not found
+        put:
+            summary: Update a sales tax
+            tags:
+                - Sales Taxes
+            operationId: updateSalesTaxById
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: The id of the sales tax
+                    schema:
+                        type: integer
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/SalesTax'
+            responses:
+                '200':
+                    description: The updated sales tax
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/SalesTax'
+                '404':
+                    description: Sales tax with given id not found
+        delete:
+            summary: Delete a sales tax
+            tags:
+                - Sales Taxes
+            operationId: deleteSalesTaxById
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: The id of the sales tax
+                    schema:
+                        type: integer
+            responses:
+                '204':
+                    description: The sales tax was deleted
+                '404':
+                    description: Sales tax with given id not found
+    # Files
+    /files:
+        post:
+            summary: Upload a file
+            tags:
+                - Files
+            operationId: uploadFile
+            requestBody:
+                required: true
+                content:
+                    multipart/form-data:
+                        schema:
+                            $ref: '#/components/schemas/File'
+            responses:
+                '201':
+                    description: The file was uploaded
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/File'
+    /files/{id}:
+        get:
+            summary: Download a file
+            tags:
+                - Files
+            operationId: downloadFileById
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: The id of the file
+                    schema:
+                        type: integer
+            responses:
+                '200':
+                    description: The file
+                    content:
+                        application/octet-stream:
+                            schema:
+                                type: string
+                                format: binary
+                '404':
+                    description: File with given id not found
+
+security:
+    -   bearerAuth: []
 
 components:
     schemas:
+        SalesTax:
+            type: object
+            properties:
+                id:
+                    type: integer
+                rate:
+                    type: number
+                name:
+                    type: string
+        Position:
+            type: object
+            properties:
+                id:
+                    type: integer
+                description:
+                    type: string
+                price:
+                    type: number
+                quantity:
+                    type: number
+                unit:
+                    type: string
+                    enum: [ hour, pd, piece ]
+                invoice:
+                    type: integer
+        PdfTemplate:
+            type: object
+            properties:
+                id:
+                    type: integer
+                name:
+                    type: string
+                marginTopFirstPage:
+                    type: number
+                marginBottomFirstPage:
+                    type: number
+                marginTopOtherPages:
+                    type: number
+                marginBottomOtherPages:
+                    type: number
+        ContactPerson:
+            type: object
+            properties:
+                id:
+                    type: integer
+                name:
+                    type: string
+                firstName:
+                    type: string
+                email:
+                    type: string
+                salutation:
+                    type: string
+                    enum: [ Frau, Herr, Divers ]
+                address:
+                    $ref: '#/components/schemas/Address'
+                businessPartner:
+                    type: integer
+        BusinessPartner:
+            type: object
+            properties:
+                id:
+                    type: integer
+                name:
+                    type: string
+                description:
+                    type: string
+                address:
+                    $ref: '#/components/schemas/Address'
+                contactPersons:
+                    type: array
+                    items:
+                        type: integer
+                invoices:
+                    type: array
+                    items:
+                        type: integer
+        Address:
+            type: object
+            properties:
+                street:
+                    type: string
+                number:
+                    type: string
+                zip:
+                    type: string
+                city:
+                    type: string
+                country:
+                    type: string
         Invoice:
             type: object
             properties:
                 id:
                     type: integer
-                amount:
-                    type: number
-                date:
+                invoiceNumber:
+                    type: integer
+                description:
+                    type: string
+                viaMail:
+                    type: boolean
+                preText:
+                    type: string
+                postText:
+                    type: string
+                serviceFrom:
                     type: string
                     format: date
+                serviceTo:
+                    type: string
+                    format: date
+                orderNumber:
+                    type: integer
+                customerNumber:
+                    type: integer
+                positions:
+                    type: array
+                    items:
+                        type: integer
+                receiver:
+                    type: integer
+                salesTax:
+                    type: integer
+                pdfTemplate:
+                    type: integer
+                file:
+                    type: integer
+        File:
+            type: object
+            properties:
+                id:
+                    type: integer
+                fileType:
+                    type: string
+                    enum: [ template, invoice ]
+                fileName:
+                    type: string
+                data:
+                    type: string
+                    format: binary

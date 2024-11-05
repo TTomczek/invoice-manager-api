@@ -58,6 +58,7 @@
                         <configuration>
                             <inputSpec>${project.basedir}/../openapi.yaml</inputSpec>
                             <generatorName>spring</generatorName>
+                            <modelNameSuffix>DTO</modelNameSuffix>
                             <configOptions>
                                 <library>spring-boot</library>
                                 <apiPackage>net.tomczek.invoice.manager.api.server.api</apiPackage>
