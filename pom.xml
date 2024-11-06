@@ -16,6 +16,11 @@
             <name>GitHub TTomczek Apache Maven Packages</name>
             <url>https://maven.pkg.github.com/TTomczek/invoice-manager-api</url>
         </repository>
+        <snapshotRepository>
+            <id>github</id>
+            <name>GitHub TTomczek Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/TTomczek/invoice-manager-api</url>
+        </snapshotRepository>
     </distributionManagement>
 
     <groupId>net.tomczek</groupId>

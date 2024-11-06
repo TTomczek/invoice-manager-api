@@ -40,6 +40,7 @@
                                 <npmVersion>${project.version}</npmVersion>
                                 <withInterfaces>true</withInterfaces>
                                 <supportES6>true</supportES6>
+                                <npmRepository>https://github.com/TTomczek/invoice-manager-api.git</npmRepository>
                             </configOptions>
                         </configuration>
                     </execution>
