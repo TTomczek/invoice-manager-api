@@ -24,7 +24,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springdoc</groupId>
@@ -66,7 +66,6 @@
                                 <invokerPackage>net.tomczek.invoice.manager.api.server.invoker</invokerPackage>
                                 <configPackage>net.tomczek.invoice.manager.api.server.config</configPackage>
                                 <output>${project.basedir}/src/main/java</output>
-                                <reactive>true</reactive>
                                 <dateLibrary>java8</dateLibrary>
                                 <useSpringBoot3>true</useSpringBoot3>
                                 <artifactId>invoice-manager-api-spring-boot-server</artifactId>

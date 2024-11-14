@@ -307,71 +307,71 @@ paths:
                     description: The contact person was deleted
                 '404':
                     description: Contact person with given id not found
-    # Pdf Template
-    /pdf-templates:
+    # Invoice Template
+    /invoice-templates:
         get:
-            summary: Get all pdf templates
+            summary: Get all invoice templates
             tags:
-                - Pdf Templates
-            operationId: getAllPdfTemplates
+                - Invoice Templates
+            operationId: getAllInvoiceTemplates
             responses:
                 '200':
-                    description: A list of pdf templates
+                    description: A list of invoice templates
                     content:
                         application/json:
                             schema:
                                 type: array
                                 items:
-                                    $ref: '#/components/schemas/PdfTemplate'
+                                    $ref: '#/components/schemas/InvoiceTemplate'
         post:
-            summary: Create a new pdf template
+            summary: Create a new invoice template
             tags:
-                - Pdf Templates
+                - Invoice Templates
             requestBody:
                 required: true
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/PdfTemplate'
+                            $ref: '#/components/schemas/InvoiceTemplate'
             responses:
                 '201':
-                    description: The pdf template was created
+                    description: The invoice template was created
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/PdfTemplate'
-    /pdf-templates/{id}:
+                                $ref: '#/components/schemas/InvoiceTemplate'
+    /invoice-templates/{id}:
         get:
-            summary: Get a pdf template by id
+            summary: Get a invoice template by id
             tags:
-                - Pdf Templates
-            operationId: getPdfTemplateById
+                - Invoice Templates
+            operationId: getInvoiceTemplateById
             parameters:
                 -   name: id
                     in: path
                     required: true
-                    description: The id of the pdf template
+                    description: The id of the invoice template
                     schema:
                         type: integer
             responses:
                 '200':
-                    description: A pdf template
+                    description: A invoice template
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/PdfTemplate'
+                                $ref: '#/components/schemas/InvoiceTemplate'
                 '404':
-                    description: Pdf template with given id not found
+                    description: Invoice template with given id not found
         put:
-            summary: Update a pdf template
+            summary: Update a invoice template
             tags:
-                - Pdf Templates
-            operationId: updatePdfTemplateById
+                - Invoice Templates
+            operationId: updateInvoiceTemplateById
             parameters:
                 -   name: id
                     in: path
                     required: true
-                    description: The id of the pdf template
+                    description: The id of the invoice template
                     schema:
                         type: integer
             requestBody:
@@ -379,99 +379,99 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/PdfTemplate'
+                            $ref: '#/components/schemas/InvoiceTemplate'
             responses:
                 '200':
-                    description: The updated pdf template
+                    description: The updated invoice template
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/PdfTemplate'
+                                $ref: '#/components/schemas/InvoiceTemplate'
                 '404':
-                    description: Pdf template with given id not found
+                    description: Invoice template with given id not found
         delete:
-            summary: Delete a pdf template
+            summary: Delete a invoice template
             tags:
-                - Pdf Templates
-            operationId: deletePdfTemplateById
+                - Invoice Templates
+            operationId: deleteInvoiceTemplateById
             parameters:
                 -   name: id
                     in: path
                     required: true
-                    description: The id of the pdf template
+                    description: The id of the invoice template
                     schema:
                         type: integer
             responses:
                 '204':
-                    description: The pdf template was deleted
+                    description: The invoice template was deleted
                 '404':
-                    description: Pdf template with given id not found
+                    description: Invoice template with given id not found
     # Position
-    /positions:
+    /invoice-positions:
         get:
-            summary: Get all positions
+            summary: Get all invoice positions
             tags:
-                - Positions
-            operationId: getAllPositions
+                - InvoicePositions
+            operationId: getAllInvoicePositions
             responses:
                 '200':
-                    description: A list of positions
+                    description: A list of invoice positions
                     content:
                         application/json:
                             schema:
                                 type: array
                                 items:
-                                    $ref: '#/components/schemas/Position'
+                                    $ref: '#/components/schemas/InvoicePosition'
         post:
-            summary: Create a new position
+            summary: Create a new invoice position
             tags:
-                - Positions
+                - InvoicePositions
             operationId: createPosition
             requestBody:
                 required: true
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/Position'
+                            $ref: '#/components/schemas/InvoicePosition'
             responses:
                 '201':
-                    description: The position was created
+                    description: The invoice position was created
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/Position'
-    /positions/{id}:
+                                $ref: '#/components/schemas/InvoicePosition'
+    /invoice-positions/{id}:
         get:
-            summary: Get a position by id
+            summary: Get a invoice position by id
             tags:
-                - Positions
-            operationId: getPositionById
+                - InvoicePositions
+            operationId: getInvoicePositionById
             parameters:
                 -   name: id
                     in: path
                     required: true
-                    description: The id of the position
+                    description: The id of the invoice position
                     schema:
                         type: integer
             responses:
                 '200':
-                    description: A position
+                    description: A invoice position
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/Position'
+                                $ref: '#/components/schemas/InvoicePosition'
                 '404':
-                    description: Position with given id not found
+                    description: Invoice Position with given id not found
         put:
-            summary: Update a position
+            summary: Update a invoice position
             tags:
-                - Positions
-            operationId: updatePositionById
+                - InvoicePositions
+            operationId: updateInvoicePositionById
             parameters:
                 -   name: id
                     in: path
                     required: true
-                    description: The id of the position
+                    description: The id of the invoice position
                     schema:
                         type: integer
             requestBody:
@@ -479,33 +479,33 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/Position'
+                            $ref: '#/components/schemas/InvoicePosition'
             responses:
                 '200':
-                    description: The updated position
+                    description: The updated invoice position
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/Position'
+                                $ref: '#/components/schemas/InvoicePosition'
                 '404':
-                    description: Position with given id not found
+                    description: Invoice position with given id not found
         delete:
-            summary: Delete a position
+            summary: Delete a invoice position
             tags:
-                - Positions
-            operationId: deletePositionById
+                - InvoicePositions
+            operationId: deleteInvoicePositionById
             parameters:
                 -   name: id
                     in: path
                     required: true
-                    description: The id of the position
+                    description: The id of the invoice position
                     schema:
                         type: integer
             responses:
                 '204':
-                    description: The position was deleted
+                    description: The invoice position was deleted
                 '404':
-                    description: Position with given id not found
+                    description: Invoice position with given id not found
     # Sales Tax
     /sales-taxes:
         get:
@@ -663,23 +663,24 @@ components:
                     type: number
                 name:
                     type: string
-        Position:
+        InvoicePosition:
             type: object
             properties:
                 id:
                     type: integer
                 description:
                     type: string
-                price:
+                pricePerUnitInCents:
                     type: number
                 quantity:
                     type: number
+                    format: float
                 unit:
                     type: string
                     enum: [ hour, pd, piece ]
                 invoice:
                     type: integer
-        PdfTemplate:
+        InvoiceTemplate:
             type: object
             properties:
                 id:
@@ -688,12 +689,16 @@ components:
                     type: string
                 marginTopFirstPage:
                     type: number
+                    format: float
                 marginBottomFirstPage:
                     type: number
+                    format: float
                 marginTopOtherPages:
                     type: number
+                    format: float
                 marginBottomOtherPages:
                     type: number
+                    format: float
         ContactPerson:
             type: object
             properties:
@@ -749,8 +754,6 @@ components:
             properties:
                 id:
                     type: integer
-                invoiceNumber:
-                    type: integer
                 description:
                     type: string
                 viaMail:
@@ -766,7 +769,7 @@ components:
                     type: string
                     format: date
                 orderNumber:
-                    type: integer
+                    type: string
                 customerNumber:
                     type: integer
                 positions:
@@ -777,7 +780,7 @@ components:
                     type: integer
                 salesTax:
                     type: integer
-                pdfTemplate:
+                invoiceTemplate:
                     type: integer
                 file:
                     type: integer
