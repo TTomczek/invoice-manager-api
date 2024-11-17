@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
     title: Invoice Manager API
-    version: 1.0.0
+    version: 1.1.0
     description: This is a simple API to manage invoices
 servers:
     -   url: http://localhost:8080
@@ -24,6 +24,12 @@ paths:
                                 type: array
                                 items:
                                     $ref: '#/components/schemas/Invoice'
+                '500':
+                    description: Error while getting the invoices
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
         post:
             summary: Create a new invoice
             tags:
@@ -42,6 +48,12 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Invoice'
+                '500':
+                    description: Error while creating the invoice
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
     /invoices/{id}:
         get:
             summary: Get an invoice by id
@@ -64,6 +76,12 @@ paths:
                                 $ref: '#/components/schemas/Invoice'
                 '404':
                     description: Invoice with given id not found
+                '500':
+                    description: Error while getting the invoice
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
         put:
             summary: Update an invoice
             tags:
@@ -91,6 +109,12 @@ paths:
                                 $ref: '#/components/schemas/Invoice'
                 '404':
                     description: Invoice with given id not found
+                '500':
+                    description: Error while updating the invoice
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
         delete:
             summary: Delete an invoice
             tags:
@@ -108,6 +132,12 @@ paths:
                     description: The invoice was deleted
                 '404':
                     description: Invoice with given id not found
+                '500':
+                    description: Error while deleting the invoice
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
     # Business Partner
     /business-partners:
         get:
@@ -124,6 +154,12 @@ paths:
                                 type: array
                                 items:
                                     $ref: '#/components/schemas/BusinessPartner'
+                '500':
+                    description: Error while getting the business partners
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
         post:
             summary: Create a new business partner
             tags:
@@ -142,6 +178,12 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/BusinessPartner'
+                '500':
+                    description: Error while creating the business partner
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
     /business-partners/{id}:
         get:
             summary: Get a business partner by id
@@ -164,6 +206,12 @@ paths:
                                 $ref: '#/components/schemas/BusinessPartner'
                 '404':
                     description: Business partner with given id not found
+                '500':
+                    description: Error while getting the business partner
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
         put:
             summary: Update a business partner
             tags:
@@ -191,6 +239,12 @@ paths:
                                 $ref: '#/components/schemas/BusinessPartner'
                 '404':
                     description: Business partner with given id not found
+                '500':
+                    description: Error while updating the business partner
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
         delete:
             summary: Delete a business partner
             tags:
@@ -208,6 +262,12 @@ paths:
                     description: The business partner was deleted
                 '404':
                     description: Business partner with given id not found
+                '500':
+                    description: Error while deleting the business partner
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
     # Contact Person
     /contact-persons:
         get:
@@ -223,6 +283,12 @@ paths:
                                 type: array
                                 items:
                                     $ref: '#/components/schemas/ContactPerson'
+                '500':
+                    description: Error while getting the contact persons
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
         post:
             summary: Create a new contact person
             tags:
@@ -241,6 +307,12 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/ContactPerson'
+                '500':
+                    description: Error while creating the contact person
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
     /contact-persons/{id}:
         get:
             summary: Get a contact person by id
@@ -263,6 +335,12 @@ paths:
                                 $ref: '#/components/schemas/ContactPerson'
                 '404':
                     description: Contact person with given id not found
+                '500':
+                    description: Error while getting the contact person
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
         put:
             summary: Update a contact person
             tags:
@@ -290,6 +368,12 @@ paths:
                                 $ref: '#/components/schemas/ContactPerson'
                 '404':
                     description: Contact person with given id not found
+                '500':
+                    description: Error while updating the contact person
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
         delete:
             summary: Delete a contact person
             tags:
@@ -307,6 +391,12 @@ paths:
                     description: The contact person was deleted
                 '404':
                     description: Contact person with given id not found
+                '500':
+                    description: Error while deleting the contact person
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
     # Invoice Template
     /invoice-templates:
         get:
@@ -323,6 +413,12 @@ paths:
                                 type: array
                                 items:
                                     $ref: '#/components/schemas/InvoiceTemplate'
+                '500':
+                    description: Error while getting the invoice templates
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
         post:
             summary: Create a new invoice template
             tags:
@@ -340,6 +436,12 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/InvoiceTemplate'
+                '500':
+                    description: Error while creating the invoice template
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
     /invoice-templates/{id}:
         get:
             summary: Get a invoice template by id
@@ -362,6 +464,12 @@ paths:
                                 $ref: '#/components/schemas/InvoiceTemplate'
                 '404':
                     description: Invoice template with given id not found
+                '500':
+                    description: Error while getting the invoice template
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
         put:
             summary: Update a invoice template
             tags:
@@ -389,6 +497,12 @@ paths:
                                 $ref: '#/components/schemas/InvoiceTemplate'
                 '404':
                     description: Invoice template with given id not found
+                '500':
+                    description: Error while updating the invoice template
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
         delete:
             summary: Delete a invoice template
             tags:
@@ -406,6 +520,12 @@ paths:
                     description: The invoice template was deleted
                 '404':
                     description: Invoice template with given id not found
+                '500':
+                    description: Error while deleting the invoice template
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
     # Position
     /invoice-positions:
         get:
@@ -422,6 +542,12 @@ paths:
                                 type: array
                                 items:
                                     $ref: '#/components/schemas/InvoicePosition'
+                '500':
+                    description: Error while getting the invoice positions
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
         post:
             summary: Create a new invoice position
             tags:
@@ -440,6 +566,12 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/InvoicePosition'
+                '500':
+                    description: Error while creating the invoice position
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
     /invoice-positions/{id}:
         get:
             summary: Get a invoice position by id
@@ -462,6 +594,12 @@ paths:
                                 $ref: '#/components/schemas/InvoicePosition'
                 '404':
                     description: Invoice Position with given id not found
+                '500':
+                    description: Error while getting the invoice position
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
         put:
             summary: Update a invoice position
             tags:
@@ -489,6 +627,12 @@ paths:
                                 $ref: '#/components/schemas/InvoicePosition'
                 '404':
                     description: Invoice position with given id not found
+                '500':
+                    description: Error while updating the invoice position
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
         delete:
             summary: Delete a invoice position
             tags:
@@ -506,6 +650,12 @@ paths:
                     description: The invoice position was deleted
                 '404':
                     description: Invoice position with given id not found
+                '500':
+                    description: Error while deleting the invoice position
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
     # Sales Tax
     /sales-taxes:
         get:
@@ -522,6 +672,12 @@ paths:
                                 type: array
                                 items:
                                     $ref: '#/components/schemas/SalesTax'
+                '500':
+                    description: Error while getting the sales taxes
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
         post:
             summary: Create a new sales tax
             tags:
@@ -539,6 +695,12 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/SalesTax'
+                '500':
+                    description: Error while creating the sales tax
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
     /sales-taxes/{id}:
         get:
             summary: Get a sales tax by id
@@ -561,6 +723,12 @@ paths:
                                 $ref: '#/components/schemas/SalesTax'
                 '404':
                     description: Sales tax with given id not found
+                '500':
+                    description: Error while getting the sales tax
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
         put:
             summary: Update a sales tax
             tags:
@@ -588,6 +756,12 @@ paths:
                                 $ref: '#/components/schemas/SalesTax'
                 '404':
                     description: Sales tax with given id not found
+                '500':
+                    description: Error while updating the sales tax
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
         delete:
             summary: Delete a sales tax
             tags:
@@ -605,6 +779,12 @@ paths:
                     description: The sales tax was deleted
                 '404':
                     description: Sales tax with given id not found
+                '500':
+                    description: Error while deleting the sales tax
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
     # Files
     /files:
         post:
@@ -615,7 +795,7 @@ paths:
             requestBody:
                 required: true
                 content:
-                    multipart/form-data:
+                    application/json:
                         schema:
                             $ref: '#/components/schemas/File'
             responses:
@@ -624,7 +804,13 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/File'
+                                type: integer
+                '500':
+                    description: Error while uploading the file
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
     /files/{id}:
         get:
             summary: Download a file
@@ -642,12 +828,16 @@ paths:
                 '200':
                     description: The file
                     content:
-                        application/octet-stream:
+                        application/json:
                             schema:
-                                type: string
-                                format: binary
+                                $ref: '#/components/schemas/File'
                 '404':
                     description: File with given id not found
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+
 
 security:
     -   bearerAuth: []
@@ -789,11 +979,15 @@ components:
             properties:
                 id:
                     type: integer
-                fileType:
-                    type: string
-                    enum: [ template, invoice ]
                 fileName:
                     type: string
                 data:
                     type: string
                     format: binary
+        Error:
+            type: object
+            properties:
+                code:
+                    type: integer
+                message:
+                    type: string
