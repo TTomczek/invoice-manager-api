@@ -128,8 +128,12 @@ paths:
                     schema:
                         type: integer
             responses:
-                '204':
+                '200':
                     description: The invoice was deleted
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Invoice'
                 '404':
                     description: Invoice with given id not found
                 '500':
@@ -258,8 +262,12 @@ paths:
                     schema:
                         type: integer
             responses:
-                '204':
+                '200':
                     description: The business partner was deleted
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/BusinessPartner'
                 '404':
                     description: Business partner with given id not found
                 '500':
@@ -388,8 +396,12 @@ paths:
                     schema:
                         type: integer
             responses:
-                '204':
+                '200':
                     description: The contact person was deleted
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ContactPerson'
                 '404':
                     description: Contact person with given id not found
                 '500':
@@ -518,8 +530,12 @@ paths:
                     schema:
                         type: integer
             responses:
-                '204':
+                '200':
                     description: The invoice template was deleted
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/InvoiceTemplate'
                 '404':
                     description: Invoice template with given id not found
                 '500':
@@ -648,8 +664,12 @@ paths:
                     schema:
                         type: integer
             responses:
-                '204':
+                '200':
                     description: The invoice position was deleted
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/InvoicePosition'
                 '404':
                     description: Invoice position with given id not found
                 '500':
@@ -778,8 +798,12 @@ paths:
                     schema:
                         type: integer
             responses:
-                '204':
+                '200':
                     description: The sales tax was deleted
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/SalesTax'
                 '404':
                     description: Sales tax with given id not found
                 '500':
