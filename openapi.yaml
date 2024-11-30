@@ -142,6 +142,33 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Error'
+    /invoices/{id}/pdf:
+        get:
+            summary: Get an invoice as PDF
+            tags:
+                - Invoices
+            operationId: getInvoicePdfById
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: The id of the invoice
+                    schema:
+                        type: integer
+            responses:
+                '200':
+                    description: The invoice as PDF
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/File'
+                '404':
+                    description: Invoice with given id not found
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+
     # Business Partner
     /business-partners:
         get:
@@ -916,6 +943,8 @@ components:
                 marginBottomOtherPages:
                     type: number
                     format: float
+                fileId:
+                    type: integer
         ContactPerson:
             type: object
             properties:
@@ -956,6 +985,8 @@ components:
         Address:
             type: object
             properties:
+                id:
+                    type: integer
                 street:
                     type: string
                 number:
