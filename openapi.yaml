@@ -849,7 +849,7 @@ paths:
             requestBody:
                 required: true
                 content:
-                    application/json:
+                    multipart/form-data:
                         schema:
                             $ref: '#/components/schemas/File'
             responses:
@@ -884,7 +884,7 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/File'
+                                $ref: '#/components/schemas/DownloadFile'
                 '404':
                     description: File with given id not found
                     content:
@@ -1042,6 +1042,16 @@ components:
                 data:
                     type: string
                     format: binary
+        DownloadFile:
+            type: object
+            properties:
+                id:
+                    type: integer
+                fileName:
+                    type: string
+                data:
+                    type: string
+                    format: byte
         Error:
             type: object
             properties:
