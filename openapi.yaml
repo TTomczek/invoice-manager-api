@@ -142,6 +142,34 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Error'
+    /invoices/{id}/positions:
+        get:
+            summary: Get all positions of an invoice
+            tags:
+                - Invoices
+            operationId: getAllPositionsOfInvoice
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: The id of the invoice
+                    schema:
+                        type: integer
+            responses:
+                '200':
+                    description: A list of positions
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/InvoicePosition'
+                '404':
+                    description: Invoice with given id not found
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
     /invoices/{id}/pdf:
         get:
             summary: Get an invoice as PDF
@@ -299,6 +327,34 @@ paths:
                     description: Business partner with given id not found
                 '500':
                     description: Error while deleting the business partner
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    /business-partners/{id}/contact-persons:
+        get:
+            summary: Get all contact persons of a business partner
+            tags:
+                - Business Partners
+            operationId: getAllContactPersonsOfBusinessPartner
+            parameters:
+                -   name: id
+                    in: path
+                    required: true
+                    description: The id of the business partner
+                    schema:
+                        type: integer
+            responses:
+                '200':
+                    description: A list of contact persons
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/ContactPerson'
+                '404':
+                    description: Business partner with given id not found
                     content:
                         application/json:
                             schema:
