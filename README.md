@@ -4,8 +4,8 @@ This is projekt contains the REST-api for the invoice manager project. This is a
 
 ## Running
 ### Prerequisites
-* Java 17+
-* Node.js ^18.19.1 || ^20.11.1 || ^22.0.0
+* Java 21
+* Node.js ^20.11.1 || ^22.0.0
 
 ### Generate the libraries
 Run the following commands in the terminal of your IDE or in the terminal of your choice.

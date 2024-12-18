@@ -9,4 +9,5 @@ cd dist
 echo "Packing angular api"
 npm pack
 cd ../../../../..
+echo "Install angular api with: npm i '..\invoice-manager-api\invoice-manager-api-typescript-angular-client\target\generated-sources\openapi\dist\invoice-manager-api-typescript-angular-client-1.0.0-SNAPSHOT.tgz'"
 echo "Done"
